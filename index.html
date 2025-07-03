@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio - Nafis</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -15,9 +14,12 @@
     }
 
     body {
-      background-color: #f5f7fa;
-      color: #333;
+      background-color: #121212;
+      color: #eee;
       line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -25,6 +27,7 @@
       padding: 40px 20px;
       text-align: center;
       color: white;
+      flex-shrink: 0;
     }
 
     header h1 {
@@ -44,6 +47,7 @@
       padding: 40px 20px;
       max-width: 1000px;
       margin: auto;
+      flex-grow: 1;
     }
 
     section {
@@ -52,9 +56,9 @@
 
     .section-title {
       font-size: 1.8em;
-      color: #2575fc;
+      color: #57a6ff;
       margin-bottom: 15px;
-      border-bottom: 2px solid #ddd;
+      border-bottom: 2px solid #444;
       padding-bottom: 5px;
     }
 
@@ -70,25 +74,26 @@
     }
 
     .project-card {
-      background: white;
+      background: #1e1e1e;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
       transition: transform 0.2s ease;
     }
 
     .project-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(37, 117, 252, 0.6);
     }
 
     .project-card h4 {
-      color: #2575fc;
+      color: #57a6ff;
       margin-bottom: 10px;
     }
 
     .project-card a {
       text-decoration: none;
-      color: #333;
+      color: #80b3ff;
       font-weight: bold;
     }
 
@@ -112,13 +117,23 @@
       color: white;
       text-align: center;
       padding: 30px 20px;
+      flex-shrink: 0;
     }
 
     footer a {
       color: #57a6ff;
       text-decoration: none;
       margin: 0 10px;
-      font-size: 1.2em;
+      vertical-align: middle;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    footer a svg {
+      fill: #57a6ff;
+      width: 20px;
+      height: 20px;
+      margin-right: 6px;
     }
 
     footer a:hover {
@@ -140,7 +155,7 @@
 <body>
   <header>
     <h1>Nafis Shahriar</h1>
-    <img src="nafis.jpg" alt="My image">
+    <img src="nafis.jpg" alt="My image" />
   </header>
 
   <main>
@@ -172,12 +187,12 @@
         <div class="project-card">
           <h4>Coffee Menu</h4>
           <p>A simple interactive menu built using HTML and CSS to display coffee options.</p>
-          <a href="https://github.com/Himalaya124/coffee-menu" target="_blank">View on GitHub</a>
+          <a href="https://github.com/Himalaya124/coffee-menu" target="_blank" rel="noopener noreferrer">View on GitHub</a>
         </div>
         <div class="project-card">
           <h4>Electricity Bill Calculator</h4>
           <p>A billing calculator app developed to compute electricity costs based on usage.</p>
-          <a href="https://github.com/Himalaya124/electricitybillcalculator" target="_blank">View on GitHub</a>
+          <a href="https://github.com/Himalaya124/electricitybillcalculator" target="_blank" rel="noopener noreferrer">View on GitHub</a>
         </div>
       </div>
     </section>
@@ -198,8 +213,15 @@
     <h3>Contact</h3>
     <p>Mobile: 01866328649</p>
     <p>
-      <a href="https://www.facebook.com/Nafis.Shahariar.Himalaya" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.google.com/maps/@22.3597679,91.8434257,14z?entry=ttu" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
+      <a href="https://www.facebook.com/Nafis.Shahariar.Himalaya" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.326v21.348C0 23.4.6 24 1.326 24H12.82v-9.294H9.692v-3.622h3.127V8.41c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.312h3.59l-.467 3.622h-3.123V24h6.116c.727 0 1.327-.6 1.327-1.326V1.326C24 .6 23.4 0 22.675 0z"/></svg>
+        Facebook
+      </a>
+      |
+      <a href="https://www.google.com/maps/@22.3597679,91.8434257,14z?entry=ttu" target="_blank" rel="noopener noreferrer" aria-label="Address">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Address
+      </a>
     </p>
     <p style="margin-top: 20px; font-size: 0.9em;">&copy; 2025 Nafis Shahriar. All rights reserved.</p>
   </footer>
