@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio - Nafis</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     * {
       margin: 0;
@@ -91,6 +92,21 @@
       font-weight: bold;
     }
 
+    .toggle-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #2575fc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background-color: #6a11cb;
+    }
+
     footer {
       background: #222;
       color: white;
@@ -102,6 +118,7 @@
       color: #57a6ff;
       text-decoration: none;
       margin: 0 10px;
+      font-size: 1.2em;
     }
 
     footer a:hover {
@@ -139,7 +156,7 @@
     <section>
       <h2 class="section-title">Skills</h2>
       <ul>
-        <li>Programming: C, C++, C#, Python (beginner), Java (academic)</li>
+        <li>Programming: C++, C#, Python (beginner), Java (academic)</li>
         <li>Web Development: HTML, CSS, JavaScript (learning)</li>
         <li>Arduino Projects: Sensor-based systems, simulations in Tinkercad</li>
         <li>Software Tools: GitHub, Microsoft Office (Expert), Tinkercad</li>
@@ -150,7 +167,8 @@
 
     <section>
       <h2 class="section-title">Projects</h2>
-      <div class="project-list">
+      <button class="toggle-btn" onclick="toggleProjects()">Toggle Projects</button>
+      <div class="project-list" id="projectList">
         <div class="project-card">
           <h4>Coffee Menu</h4>
           <p>A simple interactive menu built using HTML and CSS to display coffee options.</p>
@@ -169,8 +187,9 @@
       <ul>
         <li>Playing Football</li>
         <li>Competitive Programming</li>
-        <li>Research & Software Exploration</li>
+        <li>Freelancing Research & Software Exploration</li>
         <li>Reciting the Quran</li>
+        <li>Dreaming big: Someday owning a Range Rover 🚙</li>
       </ul>
     </section>
   </main>
@@ -179,10 +198,21 @@
     <h3>Contact</h3>
     <p>Mobile: 01866328649</p>
     <p>
-      <a href="https://www.facebook.com/Nafis.Shahariar.Himalaya">Facebook</a> |
-      <a href="https://www.google.com/maps/@22.3597679,91.8434257,14z?entry=ttu">Address</a>
+      <a href="https://www.facebook.com/Nafis.Shahariar.Himalaya" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.google.com/maps/@22.3597679,91.8434257,14z?entry=ttu" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
     </p>
     <p style="margin-top: 20px; font-size: 0.9em;">&copy; 2025 Nafis Shahriar. All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleProjects() {
+      const list = document.getElementById('projectList');
+      if (list.style.display === 'none') {
+        list.style.display = 'grid';
+      } else {
+        list.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
