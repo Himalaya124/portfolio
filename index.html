@@ -5,194 +5,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nafis Shahriar - Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     :root {
-      --bg: #ffffff;
-      --text: #222;
-      --accent: #2575fc;
-      --card: #f0f0f0;
+      --bg: #0f1c2c; --surf: #1a2a44;
+      --text: #e0e0e0; --accent: #1abc9c;
     }
-    [data-theme="dark"] {
-      --bg: #121212;
-      --text: #f0f0f0;
-      --accent: #57a6ff;
-      --card: #1e1e1e;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      transition: background 0.3s, color 0.3s;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; font-family:'Roboto',sans-serif; }
+    body { background:var(--bg); color:var(--text); }
 
     nav {
-      background: var(--card);
-      padding: 10px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: fixed; top:0; left:0; right:0;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:1rem 2rem; background:rgba(26,40,60,0.8); backdrop-filter:blur(6px);
+      z-index:100;
     }
-
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    .toggle-theme {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+    nav a { color:var(--text); margin:0 0.75rem; text-decoration:none; font-weight:500; }
+    nav a:hover { color:var(--accent); }
 
     header {
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: white;
-      padding: 60px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display:flex; align-items:center; justify-content:center;
+      height:100vh; background:linear-gradient(135deg, #123, #456);
+      position:relative; text-align:center; padding:1rem;
     }
-
-    .hero-container {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      max-width: 1000px;
-      gap: 30px;
+    header::after {
+      content:"";
+      position:absolute; top:0; right:0; bottom:0; left:0;
+      background:rgba(0,0,0,0.4);
     }
-
-    .hero-container img {
-      border-radius: 50%;
-      height: 120px;
-      width: 120px;
-      object-fit: cover;
-      border: 4px solid white;
+    .hero-content {
+      position:relative; z-index:1;
+      max-width:800px; animation:fadeIn 1s ease-out both;
     }
-
-    .hero-text h1 {
-      font-size: 2.5rem;
+    .hero-content img {
+      width:140px; height:140px; border-radius:50%;
+      border:4px solid var(--accent); margin-bottom:1rem;
     }
+    .hero-content h1 { font-size:3rem; margin-bottom:0.5rem; }
+    .hero-content p { font-size:1.2rem; margin-bottom:1rem; }
+    .hero-content .btn { background:var(--accent); color:#0f1c2c;
+      padding:0.75rem 1.5rem; border:none; border-radius:6px; font-size:1rem;
+      text-decoration:none; }
+    .hero-content .btn:hover { background:#179b89; }
 
-    .hero-text p {
-      font-size: 1.1rem;
-      margin: 10px 0;
-    }
+    @keyframes fadeIn { from { opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
 
-    .btn {
-      background: white;
-      color: #2575fc;
-      padding: 10px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 10px;
-      display: inline-block;
-    }
+    main { padding:4rem 2rem; max-width:1000px; margin: auto; }
 
-    main {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+    section { margin-bottom:4rem; opacity:0; transform: translateY(30px);
+      animation:fadeIn 1s ease-out both; }
+    section:nth-of-type(2) { animation-delay:0.3s; }
+    section:nth-of-type(3) { animation-delay:0.6s; }
 
-    section {
-      margin-bottom: 60px;
-    }
+    .section-title { font-size:2rem; color:var(--accent);
+      border-bottom:2px solid var(--accent); padding-bottom:0.5rem; margin-bottom:1rem; }
 
-    .section-title {
-      font-size: 1.8rem;
-      color: var(--accent);
-      border-bottom: 2px solid var(--accent);
-      margin-bottom: 20px;
-    }
-
-    ul, ol {
-      padding-left: 20px;
-    }
-
-    .project-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
+    .project-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
     .project-card {
-      background: var(--card);
-      padding: 20px;
-      border-radius: 10px;
-      transition: transform 0.2s;
+      background:var(--surf); padding:1.5rem; border-radius:10px;
+      transition:transform 0.3s, box-shadow 0.3s;
     }
-
     .project-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(26,188,156,0.5);
+    }
+    .project-card h4 { color:var(--accent); margin-bottom:0.5rem; }
+
+    .skills ul { list-style:none; display:flex; flex-wrap:wrap; }
+    .skills li {
+      background:var(--surf); margin:0.5rem; padding:0.5rem 1rem;
+      border-radius:20px; font-size:0.95rem;
     }
 
-    .project-card h4 {
-      color: var(--accent);
-    }
+    footer { text-align:center; padding:2rem 0; }
+    footer a { color:var(--accent); font-size:1.2rem; margin:0 0.5rem; }
 
-    .project-card a {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: bold;
-    }
-
-    .skills i {
-      margin-right: 8px;
-      color: var(--accent);
-    }
-
-    footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-
-    footer a {
-      color: #57a6ff;
-      text-decoration: none;
-      margin: 0 10px;
-      font-size: 1.2em;
-    }
-
-    @media (max-width: 600px) {
-      .hero-container {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .hero-text h1 {
-        font-size: 2rem;
-      }
+    @media(max-width:600px) {
+      .hero-content h1 { font-size:2.2rem; }
+      nav { padding:0.75rem 1rem; }
     }
   </style>
 </head>
-<body data-theme="light">
+<body>
 
   <nav>
+    <div class="logo">Nafis</div>
     <div>
       <a href="#education">Education</a>
       <a href="#skills">Skills</a>
@@ -200,17 +96,14 @@
       <a href="#hobbies">Hobbies</a>
       <a href="#contact">Contact</a>
     </div>
-    <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button>
   </nav>
 
   <header>
-    <div class="hero-container">
+    <div class="hero-content">
       <img src="nafis.jpg" alt="Nafis Shahriar">
-      <div class="hero-text">
-        <h1>Nafis Shahriar</h1>
-        <p>Aspiring Software Engineer & Web Developer</p>
-        <a href="resume.pdf" class="btn" download>Download Resume</a>
-      </div>
+      <h1>I’m Nafis Shahriar</h1>
+      <p>Aspiring Software Engineer & Web Developer—building modern, clean experiences.</p>
+      <a href="resume.pdf" download class="btn">Download Resume</a>
     </div>
   </header>
 
@@ -218,7 +111,7 @@
     <section id="education">
       <h2 class="section-title">Education</h2>
       <ul>
-        <li>Studying B.Sc in CSE at CUET</li>
+        <li>CUET – B.Sc CSE</li>
         <li>Hazera Taju Degree College</li>
         <li>Govt. Muslim High School</li>
       </ul>
@@ -226,13 +119,16 @@
 
     <section id="skills">
       <h2 class="section-title">Skills</h2>
-      <ul class="skills">
-        <li><i class="fas fa-code"></i> C++, C#, Java, Python (Beginner)</li>
-        <li><i class="fas fa-globe"></i> HTML, CSS, JavaScript</li>
-        <li><i class="fas fa-microchip"></i> Arduino, Sensors, Tinkercad</li>
-        <li><i class="fab fa-github"></i> GitHub, Microsoft Office, macOS</li>
-        <li><i class="fas fa-brain"></i> Problem Solving, DLD, Statistics</li>
-      </ul>
+      <div class="skills">
+        <ul>
+          <li>C++</li>
+          <li>C#</li>
+          <li>Python</li>
+          <li>HTML/CSS</li>
+          <li>JavaScript</li>
+          <li>Arduino</li>
+        </ul>
+      </div>
     </section>
 
     <section id="projects">
@@ -240,12 +136,12 @@
       <div class="project-list">
         <div class="project-card">
           <h4>Coffee Menu</h4>
-          <p>Interactive HTML/CSS coffee shop menu UI</p>
+          <p>Interactive HTML/CSS coffee shop menu UI.</p>
           <a href="https://github.com/Himalaya124/coffee-menu" target="_blank">View Project</a>
         </div>
         <div class="project-card">
           <h4>Electricity Bill Calculator</h4>
-          <p>Bill calculator for energy consumption</p>
+          <p>Utility app calculating electricity usage costs.</p>
           <a href="https://github.com/Himalaya124/electricitybillcalculator" target="_blank">View Project</a>
         </div>
       </div>
@@ -254,30 +150,37 @@
     <section id="hobbies">
       <h2 class="section-title">Hobbies</h2>
       <ul>
-        <li>⚽ Playing Football</li>
-        <li>💻 Competitive Programming</li>
-        <li>🛠️ Freelancing Research</li>
-        <li>📖 Reciting the Quran</li>
-        <li>🚗 Dreaming of a Range Rover</li>
+        <li>Football ⚽</li>
+        <li>Competitive Programming</li>
+        <li>Freelancing Research</li>
+        <li>Reciting the Quran</li>
+        <li>Dreaming of a Range Rover 🚗</li>
       </ul>
     </section>
   </main>
 
   <footer id="contact">
-    <h3>Contact</h3>
     <p>📞 01866328649</p>
     <p>
-      <a href="https://facebook.com/Nafis.Shahariar.Himalaya" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.google.com/maps/@22.3597679,91.8434257,14z" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
+      <a href="https://facebook.com/...">Facebook</a>
+      <a href="https://maps.google.com/...">Location</a>
     </p>
-    <p style="margin-top: 20px; font-size: 0.9em;">&copy; 2025 Nafis Shahriar. All rights reserved.</p>
+    <p>&copy; 2025 Nafis Shahriar</p>
   </footer>
 
   <script>
-    function toggleTheme() {
-      const current = document.body.getAttribute("data-theme");
-      document.body.setAttribute("data-theme", current === "dark" ? "light" : "dark");
-    }
+    // Scroll animation
+    document.querySelectorAll('section').forEach(el => {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.style.animationPlayState = 'running';
+            obs.unobserve(e.target);
+          }
+        });
+      });
+      obs.observe(el);
+    });
   </script>
 </body>
 </html>
