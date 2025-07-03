@@ -61,6 +61,36 @@
       padding-left: 20px;
     }
 
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .project-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card h4 {
+      color: #2575fc;
+      margin-bottom: 10px;
+    }
+
+    .project-card a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
     footer {
       background: #222;
       color: white;
@@ -109,13 +139,29 @@
     <section>
       <h2 class="section-title">Skills</h2>
       <ul>
-        <li>Programming: C++, C#, Python , Java </li>
-        <li>Web Development: HTML, CSS</li>
+        <li>Programming: C, C++, C#, Python (beginner), Java (academic)</li>
+        <li>Web Development: HTML, CSS, JavaScript (learning)</li>
         <li>Arduino Projects: Sensor-based systems, simulations in Tinkercad</li>
-        <li>Software Tools: GitHub, Microsoft Office , Tinkercad</li>
-        <li>Platforms: macOS , Windows, Google One ecosystem</li>
+        <li>Software Tools: GitHub, Microsoft Office (Expert), Tinkercad</li>
+        <li>Platforms: macOS (MacBook Air M3), Google One ecosystem</li>
         <li>Analytical: Digital Logic Design, Statistics, Problem Solving</li>
       </ul>
+    </section>
+
+    <section>
+      <h2 class="section-title">Projects</h2>
+      <div class="project-list">
+        <div class="project-card">
+          <h4>Coffee Menu</h4>
+          <p>A simple interactive menu built using HTML and CSS to display coffee options.</p>
+          <a href="https://github.com/Himalaya124/coffee-menu" target="_blank">View on GitHub</a>
+        </div>
+        <div class="project-card">
+          <h4>Electricity Bill Calculator</h4>
+          <p>A billing calculator app developed to compute electricity costs based on usage.</p>
+          <a href="https://github.com/Himalaya124/electricitybillcalculator" target="_blank">View on GitHub</a>
+        </div>
+      </div>
     </section>
 
     <section>
